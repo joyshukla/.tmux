@@ -14,6 +14,9 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # enable tmux-resurrect plugin for saving and restoring tmux sessions
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 
+# enable tmux-continuum for automatically saving and restoring tmux sessions
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
 # -- navigation ----------------------------------------------------------------
 
 # if you're running tmux within iTerm2
