@@ -11,8 +11,11 @@
 #   - and iTerm2 is configured to let option key act as +Esc
 #   - and iTerm2 is configured to send [1;9A -> [1;9D for option + arrow keys
 # then uncomment the following line to make Meta + arrow keys mapping work
-#set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
+set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
+# bind key alt left and alt right for switching between windows
+bind-key -n M-Left previous-window
+bind-key -n M-Right next-window
 
 # -- windows & pane creation ---------------------------------------------------
 
@@ -20,6 +23,9 @@
 #   - true
 #   - false (default)
 tmux_conf_new_window_retain_current_path=false
+
+# prompt for window name when creating new window with command c
+bind-key c command-prompt -p "window name:" "new-window; rename-window '%%'"
 
 # new pane retains current path, possible values are:
 #   - true (default)
@@ -34,8 +40,10 @@ tmux_conf_new_pane_reconnect_ssh=false
 # prompt for session name when creating a new session, possible values are:
 #   - true
 #   - false (default)
-tmux_conf_new_session_prompt=false
+tmux_conf_new_session_prompt=true
 
+# split window with |
+bind | split-window -h
 
 # -- display -------------------------------------------------------------------
 
@@ -178,7 +186,9 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
+#tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
+# change default status line to remove uptime
+tmux_conf_theme_status_left=' ❐ #S | '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 
 # status left style
