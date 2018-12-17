@@ -3,6 +3,16 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+# -- plugins -------------------------------------------------------------------
+# add all plugins here
+# Note: to install a new plugin, add git submodule instead of cloning it
+#       example git submodule add https://github.com/tmux-plugins/tmux-yank.git plugins/tmux-yank
+
+# enable tmux-yank
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# enable tmux-resurrect plugin for saving and restoring tmux sessions
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 # -- navigation ----------------------------------------------------------------
 
