@@ -14,6 +14,12 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # enable tmux-resurrect plugin for saving and restoring tmux sessions
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 
+
+# add all the plugins related statement above this
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+# run tpm here
+run -b '~/.tmux/plugins/tpm/tpm'
+
 # -- navigation ----------------------------------------------------------------
 
 # if you're running tmux within iTerm2
