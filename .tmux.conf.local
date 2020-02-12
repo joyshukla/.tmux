@@ -18,6 +18,7 @@ set -g @resurrect-strategy-vim 'session'
 
 # enable tmux-continuum for automatically saving and restoring tmux sessions
 set -g @plugin 'tmux-plugins/tmux-continuum'
+#set -g @continuum-restore 'on'
 
 # -- navigation ----------------------------------------------------------------
 
